@@ -3,12 +3,8 @@ name: 🐳 Docker CI/CD Pipeline
 on:
   push:
     branches: [ main, develop ]
-    paths:
-      - 'MERN-Telemetry/**'
   pull_request:
     branches: [ main ]
-    paths:
-      - 'MERN-Telemetry/**'
   workflow_dispatch:
 
 env:
@@ -25,10 +21,10 @@ jobs:
         service: [frontend, backend]
         include:
           - service: frontend
-            context: ./MERN-Telemetry/frontend
+            context: ./frontend
             description: "React 18 frontend with Vite"
           - service: backend
-            context: ./MERN-Telemetry/backend
+            context: ./backend
             description: "Express.js API server with Node.js 18"
     
     steps:

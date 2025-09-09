@@ -1,0 +1,67 @@
+# 🛡️ Dependabot Configuration for MERN Telemetry Dashboard
+
+version: 2
+updates:
+  # 📦 Frontend Dependencies (Node.js/npm)
+  - package-ecosystem: "npm"
+    directory: "/MERN-Telemetry/frontend"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "frontend"
+      - "security"
+    commit-message:
+      prefix: "⬆️ [Frontend]"
+      include: "scope"
+
+  # 📦 Backend Dependencies (Node.js/npm)
+  - package-ecosystem: "npm"
+    directory: "/MERN-Telemetry/backend"
+    schedule:
+      interval: "weekly"
+      day: "monday" 
+      time: "09:00"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "backend"
+      - "security"
+    commit-message:
+      prefix: "⬆️ [Backend]"
+      include: "scope"
+
+  # 🐳 Docker Dependencies
+  - package-ecosystem: "docker"
+    directory: "/MERN-Telemetry"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "09:00"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "docker"
+      - "security"
+    commit-message:
+      prefix: "⬆️ [Docker]"
+      include: "scope"
+
+  # 🔧 GitHub Actions Dependencies
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "09:00"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "github-actions"
+      - "security"
+    commit-message:
+      prefix: "⬆️ [Actions]"
+      include: "scope"

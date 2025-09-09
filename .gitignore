@@ -1,0 +1,390 @@
+# 🚀 MERN Telemetry Dashboard - .gitignore
+# This file prevents committing unnecessary files to the repository
+
+# ===================================
+# 📦 Dependencies and Package Managers
+# ===================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Package manager lock files (often auto-generated)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ===================================
+# 🏗️ Build Outputs and Distribution
+# ===================================
+# Frontend build outputs
+/frontend/dist/
+/frontend/build/
+/frontend/.vite/
+
+# Backend build outputs
+/backend/dist/
+/backend/build/
+
+# Static files
+/frontend/public/dist/
+
+# ===================================
+# 🔐 Environment Variables and Secrets
+# ===================================
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+
+# Docker environment files
+.env.docker
+
+# ===================================
+# 💻 IDE and Editor Files
+# ===================================
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ===================================
+# 🖥️ Operating System Files
+# ===================================
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+Icon
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ===================================
+# 📊 Logs and Runtime Data
+# ===================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ===================================
+# 🧪 Testing and Coverage
+# ===================================
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+.nyc_output
+
+# Jest
+jest_coverage/
+
+# Cypress
+cypress/screenshots/
+cypress/videos/
+
+# ===================================
+# 🐳 Docker and Container Files
+# ===================================
+# Docker override files (should not be committed)
+docker-compose.override.yml
+docker-compose.override.yaml
+
+# Docker volumes data
+/data/
+/mongo-data/
+
+# ===================================
+# 📈 Monitoring and Observability
+# ===================================
+# Jaeger data
+/jaeger-data/
+
+# OpenTelemetry data
+/otel-data/
+
+# Metrics data
+/metrics-data/
+
+# ===================================
+# 🔧 Build Tools and Cache
+# ===================================
+# Webpack
+.webpack/
+
+# Parcel cache
+.cache/
+.parcel-cache/
+
+# Vite cache
+.vite/
+
+# Rollup cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Microbundle cache
+.rpt2_cache/
+
+# ESLint cache
+.eslintcache
+
+# Stylelint cache
+.stylelintcache
+
+# ===================================
+# 📚 Documentation Build
+# ===================================
+# Docusaurus
+.docusaurus/
+/build/
+
+# VuePress
+.vuepress/dist/
+
+# Vitepress
+.vitepress/cache/
+.vitepress/dist/
+
+# ===================================
+# 🔄 Temporary Files and Directories
+# ===================================
+tmp/
+temp/
+.tmp/
+.temp/
+
+# ===================================
+# 📦 Archives and Compressed Files
+# ===================================
+*.tgz
+*.tar.gz
+*.zip
+*.rar
+*.7z
+
+# ===================================
+# 🚀 Deployment and CI/CD
+# ===================================
+# Deployment files (if any)
+/deploy/
+/deployment/
+
+# PM2 ecosystem file (if using PM2)
+ecosystem.config.js
+
+# ===================================
+# 📱 Mobile Development (if applicable)
+# ===================================
+# React Native
+.expo/
+.expo-shared/
+
+# ===================================
+# 🎯 Project Specific Exclusions
+# ===================================
+# Database dumps
+*.sql
+*.dump
+
+# Backup files
+*.backup
+*.bak
+
+# SSL certificates (should never be committed)
+*.pem
+*.key
+*.crt
+*.cert
+
+# API keys and tokens (extra safety)
+**/api-keys/
+**/tokens/
+**/secrets/
+
+# ===================================
+# 📊 Analytics and Metrics
+# ===================================
+# Bundle analyzer reports
+bundle-analyzer-report.html
+stats.json
+
+# Lighthouse reports
+lighthouse-report.html
+
+# ===================================
+# 🔍 Search and Index Files
+# ===================================
+# Algolia
+algolia-search.json
+
+# Elasticsearch
+elasticsearch/
+
+# ===================================
+# 💾 Database Files (Local Development)
+# ===================================
+# SQLite
+*.sqlite
+*.sqlite3
+*.db
+
+# MongoDB local data
+/mongodb-data/
+/mongo/
+
+# ===================================
+# 🌐 CDN and Static Assets
+# ===================================
+# Large media files (consider using Git LFS)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.wmv
+*.flv
+
+# Large images (over 1MB)
+# Uncomment if you have large image files
+# *.psd
+# *.ai
+# *.sketch
+
+# ===================================
+# 🔧 Miscellaneous
+# ===================================
+# Yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Rush
+common/temp/
+
+# Stores VSCode versions used for testing
+.vscode-test/
+
+# Temporary folders
+node_modules.nosync
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# ===================================
+# 📝 Keep These Files (Examples)
+# ===================================
+# !.gitkeep
+# !.env.example
+# !README.md
+# !docker-compose.yml
+# !Dockerfile

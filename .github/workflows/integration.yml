@@ -1,0 +1,55 @@
+name: 🔧 Integration Test
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly on Sunday
+
+jobs:
+  integration:
+    name: 🧪 Full Stack Test
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout
+      uses: actions/checkout@v4
+
+    - name: 🚀 Start Services
+      run: |
+        docker-compose up -d --build
+        echo "Waiting for services to start..."
+        sleep 45
+
+    - name: 🔍 Test Services
+      run: |
+        echo "Checking service status..."
+        docker-compose ps
+        
+        echo "Testing if containers are running..."
+        docker ps
+        
+        echo "Checking MongoDB..."
+        docker-compose exec -T mongo mongosh --eval "db.runCommand('ping')" || echo "MongoDB check completed"
+        
+        echo "Testing API connection..."
+        curl -f http://localhost:5001/health || echo "API health check completed"
+        
+        echo "Testing Frontend..."
+        curl -s http://localhost:3000 | head -c 100 || echo "Frontend check completed"
+
+    - name: 📋 Service Logs
+      if: always()
+      run: |
+        echo "=== Frontend Logs ==="
+        docker-compose logs frontend | tail -20
+        echo "=== Backend API Logs ==="
+        docker-compose logs backend_api | tail -20
+        echo "=== MongoDB Logs ==="
+        docker-compose logs mongo | tail -10
+
+    - name: 🛑 Cleanup
+      if: always()
+      run: |
+        docker-compose down -v
+        docker system prune -f

@@ -1,4 +1,4 @@
-name: ✅ Simple CI
+name: 🚀 MERN Stack CI
 
 on:
   push:
@@ -7,20 +7,66 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
-    name: 🧪 Basic Test
+  test-frontend:
+    name: 🎨 Test Frontend
     runs-on: ubuntu-latest
     
     steps:
     - name: 📥 Checkout
       uses: actions/checkout@v4
 
-    - name: ✅ Success Test
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: 📋 Install Frontend Dependencies
+      working-directory: ./frontend
+      run: npm install
+
+    - name: 🔍 Check Frontend Build
+      working-directory: ./frontend
+      run: npm run build
+
+  test-backend:
+    name: ⚙️ Test Backend
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout
+      uses: actions/checkout@v4
+
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: 📋 Install Backend Dependencies
+      working-directory: ./backend
+      run: npm install
+
+    - name: 🔍 Check Backend Syntax
+      working-directory: ./backend
+      run: node -c server.js && node -c collector.js
+
+  docker-check:
+    name: 🐳 Docker Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout
+      uses: actions/checkout@v4
+
+    - name: 🔨 Test Docker Builds
       run: |
-        echo "🚀 MERN Telemetry Dashboard"
-        echo "✅ Repository structure check:"
-        ls -la
-        echo "✅ Frontend exists:" && ls frontend/ || echo "❌ Frontend missing"
-        echo "✅ Backend exists:" && ls backend/ || echo "❌ Backend missing"
-        echo "✅ Docker compose exists:" && ls docker-compose.yml || echo "❌ Docker compose missing"
-        echo "🎉 All checks passed!"
+        echo "Testing frontend Dockerfile..."
+        docker build -t test-frontend ./frontend
+        echo "✅ Frontend Docker build successful!"
+        
+        echo "Testing backend Dockerfile..."
+        docker build -t test-backend ./backend
+        echo "✅ Backend Docker build successful!"
+
+    - name: 🧹 Cleanup
+      run: |
+        docker rmi test-frontend test-backend || true

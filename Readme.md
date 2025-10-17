@@ -78,8 +78,7 @@ graph TB
 - **Disk I/O Monitoring**: Read/write operations across multiple drives
 - **Network Activity**: Interface monitoring with RX/TX data transfer
 
-### 🎨 **Beautiful User Interface**
-- **Purple Gradient Theme**: Modern glassmorphism design with neumorphic elements
+### 🎨 **User Interface**
 - **Responsive Grid Layout**: Adapts to different screen sizes
 - **Interactive Metric Cards**: Hover effects and trend indicators
 - **Real-time Updates**: Auto-refresh with manual refresh options

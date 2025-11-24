@@ -17,7 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^17.2.2",
-    "mongoose": "^8.18.1",
+    "mongoose": "^9.0.0",
     "systeminformation": "^5.27.8",
     "cors": "^2.8.5",
     "express": "^4.19.2"
